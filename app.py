@@ -113,14 +113,14 @@ def train_model():
     device = 0 if torch.cuda.is_available() else 'cpu'
     print('Training on device:', device)
 
-    model = YOLO('yolov8n.pt')
+    model = YOLO('yolov8s.pt')
     model.train(
         data=str(YAML_PATH),
-        epochs=10,
+        epochs=40,
         imgsz=1024,
-        batch=24,        # RTX A4000 16GB: batch 8 only used ~3.4GB
+        batch=16,        # yolov8s is bigger than v8n; keeps VRAM comfortable
         device=device,
-        patience=5,
+        patience=10,
         seed=SEED,
         cache='disk',    # RAM cache x12 workers duplicates memory on Windows -> OOM
         workers=8,
@@ -152,12 +152,15 @@ def infer():
                     'Image_ID': image_file,
                     'class': r.names[int(cls)],
                     'confidence': conf,
-                    'ymin': y1, 'xmin': x1, 'ymax': y2, 'xmax': x2,
+                    'ymin': round(y1), 'xmin': round(x1),
+                    'ymax': round(y2), 'xmax': round(x2),
                 })
         else:
+            # Zindi scorer requires EVERY test ID present; use a valid
+            # low-confidence dummy row (NaN/'None' rows score 0)
             all_data.append({
-                'Image_ID': image_file, 'class': 'None', 'confidence': None,
-                'ymin': None, 'xmin': None, 'ymax': None, 'xmax': None,
+                'Image_ID': image_file, 'class': 'healthy', 'confidence': 0.01,
+                'ymin': 100, 'xmin': 100, 'ymax': 100, 'xmax': 100,
             })
 
     sub = pd.DataFrame(all_data)
