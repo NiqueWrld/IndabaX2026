@@ -1,0 +1,9 @@
+names:
+- anthracnose
+- cssvd
+- healthy
+nc: 3
+path: C:\Users\USER PC\Desktop\New folder\dataset
+test: C:\Users\USER PC\Desktop\New folder\dataset\images\test
+train: C:\Users\USER PC\Desktop\New folder\dataset\images\train
+val: C:\Users\USER PC\Desktop\New folder\dataset\images\val
