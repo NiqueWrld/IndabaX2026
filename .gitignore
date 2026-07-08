@@ -1,19 +1,23 @@
-# data & model artifacts (too large / regenerable)
+# Datasets & images
 data/
 yolo/
-runs/
+dataset.zip
 *.zip
-*.pt
-*.onnx
-submission*.csv
 
-# python
+# Model weights
+*.pt
+
+# Training outputs
+runs/
+
+# Python
 __pycache__/
 *.py[cod]
+.ipynb_checkpoints/
 .venv/
 venv/
-.ipynb_checkpoints/
+env/
 
-# os
-Thumbs.db
+# OS / editor
 .DS_Store
+Thumbs.db
