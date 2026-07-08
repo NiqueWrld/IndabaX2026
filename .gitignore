@@ -1,0 +1,19 @@
+# data & model artifacts (too large / regenerable)
+data/
+yolo/
+runs/
+*.zip
+*.pt
+*.onnx
+submission*.csv
+
+# python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# os
+Thumbs.db
+.DS_Store
