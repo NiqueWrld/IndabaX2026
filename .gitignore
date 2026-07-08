@@ -21,3 +21,5 @@ env/
 # OS / editor
 .DS_Store
 Thumbs.db
+dataset/images
+dataset/labels

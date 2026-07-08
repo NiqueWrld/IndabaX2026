@@ -1,0 +1,40 @@
+{
+  "description": "This is a system generated manifest of files expected to be present in this zip. It can be safely deleted.",
+  "metadata": {
+    "generated_at": "2026-07-03T22:32:04+00:00",
+    "trigger": {
+      "file_hashid": "unknown",
+      "action": "unknown"
+    }
+  },
+  "manifest": [
+    {
+      "filename": "Test.csv",
+      "filesize": 90427,
+      "description": "Test resembles Train.csv but without the target-related columns. This is the dataset on which you will apply your model to.",
+      "created_at": "2026-07-03 22:30:52 UTC",
+      "updated_at": "2026-07-03 22:31:04 UTC"
+    },
+    {
+      "filename": "SampleSubmission.csv",
+      "filesize": 68804,
+      "description": "Is an example of what your submission file should look like. The order of the rows does not matter, but the names of the \"ID\" must be correct.",
+      "created_at": "2026-07-03 22:31:12 UTC",
+      "updated_at": "2026-07-03 22:31:43 UTC"
+    },
+    {
+      "filename": "Train.csv",
+      "filesize": 863669,
+      "description": "Train contains the target. This is the dataset that you will use to train your model.",
+      "created_at": "2026-07-03 22:30:29 UTC",
+      "updated_at": "2026-07-03 22:30:45 UTC"
+    },
+    {
+      "filename": "Cocoa_Disease_Starter_Notebook.ipynb",
+      "filesize": 19401843,
+      "description": "This is a starter notebook to help you make your first submission. ",
+      "created_at": "2026-07-03 22:31:52 UTC",
+      "updated_at": "2026-07-03 22:32:04 UTC"
+    }
+  ]
+}
