@@ -23,3 +23,21 @@ env/
 Thumbs.db
 dataset/images
 dataset/labels
+
+# Temp / experiment artifacts
+*.pkl
+*.zip
+mobile_app/crop_*.png
+
+# Mobile app
+mobile_app/node_modules/
+mobile_app/dist/
+mobile_app/android/app/build/
+mobile_app/android/.gradle/
+mobile_app/android/build/
+mobile_app/android/captures/
+mobile_app/android/local.properties
+mobile_app/android/*.iml
+mobile_app/android/.idea/
+mobile_app/ios/App/Pods/
+mobile_app/ios/App/build/

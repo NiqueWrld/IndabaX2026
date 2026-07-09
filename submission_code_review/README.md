@@ -93,3 +93,10 @@ model.export(format='tflite')
 ```
 
 Training and inference stay within the competition limits (T4 GPU, 9 h training, 3 h inference).
+
+## Mobile app bonus
+
+A separate React + Capacitor Android demo is available in the `mobile_app/`
+directory of the main repository. It ONNX-exports the trained model and runs
+on-device inference using the phone camera. This is provided as optional
+extra material and is not required to reproduce the competition submission.

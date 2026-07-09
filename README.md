@@ -2,7 +2,9 @@
 
 **Competition:** IndabaX South Africa Cocoa Contamination Hackathon (Zindi)
 **Task:** Object detection on cocoa leaf images — 3 classes (`anthracnose`, `cssvd`, `healthy`), metric mAP@IoU 0.5
-**Result:** Rank 3 on public leaderboard (0.698), up from a broken 0.000 start
+**Final result:** #2 on the private leaderboard, score **0.763846699** (submission ID `JzAfjwx4`)
+- Public best: 0.7539
+- Model: YOLOv8s trained at 1024×1024, single-scale TTA inference at confidence 0.001
 
 ---
 
@@ -77,9 +79,28 @@ Score went from 0.000 → 0.558 with the identical model.
 | YOLOv8n, 10 epochs, 1024 px | 0.666 | 0.558 |
 | YOLOv8s, 40 epochs, 1024 px | 0.723 | 0.667 |
 | + test-time augmentation (`augment=True` at predict) | — | **0.698 (rank 3)** |
-| YOLOv8m, 30 epochs (in progress) | TBD | TBD |
+| + lower confidence threshold (0.001) | — | 0.7535 |
+| conf threshold 0.002 | — | 0.7539 |
+| **Private leaderboard (JzAfjwx4)** | — | **0.7638 (#2)** |
 
-TTA (multi-scale + flip) was the cheapest win: ~2 minutes of inference for +0.03.
+Key insight: the competition metric is mAP@IoU 0.5, which ranks by confidence.
+Submitting more low-confidence boxes (down to 0.001) improved the public score
+materially over the default 0.25 threshold.
+
+TTA (multi-scale + flip) was a cheap early win; the biggest gain came from
+tuning the inference confidence threshold.
+
+---
+
+## Mobile app bonus
+
+A React + Capacitor Android demo is included in [`mobile_app/`](mobile_app/):
+
+- Loads an ONNX export of the trained model
+- Uses the device camera to capture cocoa leaves
+- Runs inference in the app and displays detected classes
+
+See [`mobile_app/README.md`](mobile_app/README.md) for build instructions.
 
 ---
 
