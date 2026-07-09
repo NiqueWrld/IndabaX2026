@@ -1,16 +1,26 @@
 # IndabaX South Africa Cocoa Contamination Hackathon — Reproducible Solution
 
-This repository contains the code to reproduce the 2nd-place private leaderboard submission (mAP@IoU=0.5: **0.763846699**) for the IndabaX South Africa Cocoa Contamination Hackathon.
+**Author:** NiqueWrld  
+**Private leaderboard rank:** #2  
+**Private leaderboard score (mAP@IoU=0.5):** 0.763846699  
+**Submission ID:** JzAfjwx4  
+**Submitted:** 8 July 2026 21:46  
+
+This repository contains the fully self-contained code to reproduce the above submission for the [IndabaX South Africa Cocoa Contamination Hackathon](https://zindi.africa/competitions/indabax-south-africa-cocoa-contamination-hackathon).
 
 ## Solution summary
 
-- **Model:** YOLOv8s (Ultralytics), pretrained on COCO
-- **Input size:** 1024×1024
-- **Training:** 40 epochs, batch size 16, seed 42
-- **Inference:** single-scale TTA (`augment=True`), confidence threshold 0.001, IoU-NMS 0.6
-- **Hardware used during development:** NVIDIA RTX A4000 16 GB, CUDA 12.4
-- **Training time:** ~under 9 hours on the above GPU
-- **Inference time:** ~under 3 hours on the above GPU for 1,626 test images
+| Item | Detail |
+|---|---|
+| Model | YOLOv8s (Ultralytics), pretrained on COCO |
+| Input size | 1024 × 1024 px |
+| Training | 40 epochs, batch 16, seed 42, cosine LR, mixup 0.10, copy-paste 0.10, close-mosaic 15 |
+| Inference | Single-scale TTA (`augment=True`), conf ≥ 0.001, IoU-NMS 0.6 |
+| GPU (dev) | NVIDIA RTX A4000 16 GB, CUDA 12.4 |
+| Training time | < 9 h |
+| Inference time | < 3 h for 1 626 test images |
+| External data | None |
+| Extra tools | None (open-source only) |
 
 ## Repository structure
 
